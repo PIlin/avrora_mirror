@@ -7,7 +7,9 @@
 	<property name="main.class" value="avrora.Main"/>
 	
 	<presetdef name="javac">
-		<javac includeantruntime="false" />
+		<javac includeantruntime="false" 
+			debug="true" debuglevel="lines, vars, and source"
+		/>
 	</presetdef>
 	
 	<target name="clean" description="remove intermediate files">
