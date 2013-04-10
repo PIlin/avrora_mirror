@@ -102,7 +102,7 @@ public class LED implements Microcontroller.Pin.Output {
         }
     }
 
-    protected LED(Simulator s, int n, String c) {
+    public LED(Simulator s, int n, String c) {
         sim = s;
         colornum = n;
         color = c;
