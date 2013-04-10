@@ -48,4 +48,6 @@
 	    <jar compress="true" destfile="${ant.project.name}-javadoc.jar" basedir="${doc.dir}" />
 	</target>
 	
+	<target name="jars" depends="jar, package-doc, package-sources" description="build all jar packages">
+	</target>
 </project>
