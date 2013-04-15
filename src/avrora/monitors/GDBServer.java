@@ -428,8 +428,12 @@ public class GDBServer extends MonitorFactory {
                     }
                 }
                 catch (AddressOutOfBoundsException ex) {
-                    buf = new StringBuffer(3);
-                    buf.append("E01");
+//                    buf = new StringBuffer(3);
+//                    buf.append("E01");
+                    
+                    // Pretend, that memory just filled with zeroes.
+                    for (int cntr = buf.length(); cntr < length; ++cntr)
+                        buf.append("00");
                 }
             }
 
