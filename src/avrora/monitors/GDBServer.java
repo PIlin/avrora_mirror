@@ -34,6 +34,7 @@ package avrora.monitors;
 
 import avrora.arch.legacy.LegacyRegister;
 import avrora.arch.legacy.LegacyState;
+import avrora.sim.Segment.AddressOutOfBoundsException;
 import avrora.sim.Simulator;
 import avrora.sim.State;
 import avrora.sim.output.SimPrinter;
@@ -420,9 +421,15 @@ public class GDBServer extends MonitorFactory {
                 }
             } else {
                 // reading from program memory
-                for ( int cntr = 0; cntr < length; cntr++ ) {
-                    byte value = s.getProgramByte(addr+cntr);
-                    buf.append(StringUtil.toLowHex(value & 0xff, 2));
+                try {
+                    for ( int cntr = 0; cntr < length; cntr++ ) {
+                        byte value = s.getProgramByte(addr+cntr);
+                        buf.append(StringUtil.toLowHex(value & 0xff, 2));
+                    }
+                }
+                catch (AddressOutOfBoundsException ex) {
+                    buf = new StringBuffer(3);
+                    buf.append("E01");
                 }
             }
 
