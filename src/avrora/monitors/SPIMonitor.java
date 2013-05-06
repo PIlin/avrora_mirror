@@ -51,7 +51,7 @@ import java.util.HashMap;
  */
 public class SPIMonitor extends MonitorFactory {
 
-    protected final Option.List PORTS = newOptionList("ports", "0:2391",
+    protected final Option.List PORTS = newOptionList("spi-ports", "0:2391",
             "The \"ports\" option specifies a list of server ports that the simulator will listen on " +
             "to connect to the serial forwarder for each node. The format is to first give " +
             "the node number, and then the port number " +
